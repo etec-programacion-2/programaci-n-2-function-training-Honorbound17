@@ -23,6 +23,18 @@ println("El promedio de las tres notas es: $promedioTresNotas")
 val estado = obtenerEstadoAlumno("Juan", "Pérez", 7.5)
 println(estado)
 
+println("\n=== Etapa 3: Funciones con Listas ===")
+// TODO: Implementar función calcularPromedioCurso
+val notas = listOf(7.0, 8.0, 6.5, 9.0, 7.5)
+val promedioCurso = calcularPromedioCurso(notas)
+println("El promedio del curso es: $promedioCurso")
+
+// TODO: Implementar función obtenerAlumnosAprobados
+val nombres = listOf("Ana", "Juan", "María", "Pedro", "Lucía")
+val notasAlumnos = listOf(7.0, 5.0, 8.0, 6.0, 9.0)
+val aprobados = obtenerAlumnosAprobados(nombres, notasAlumnos)
+println("Alumnos aprobados: $aprobados")
+
 
 }
 
@@ -49,5 +61,16 @@ fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String 
 // Implementar aquí
 val estado = if (esAprobado(nota)) "Está aprobado" else "Está desaprobado"
 return "El alumno es $nombre $apellido y $estado con una nota de $nota"
+}
+
+// Etapa 3
+fun calcularPromedioCurso(notas: List<Double>): Double {
+// Implementar aquí
+return if (notas.isNotEmpty()) notas.average() else 0.0
+}
+
+fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
+// Implementar aquí
+return nombres.zip(notas).filter {it.second >= 6.0}.map {it.first}
 }
 
