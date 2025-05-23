@@ -35,7 +35,19 @@ val notasAlumnos = listOf(7.0, 5.0, 8.0, 6.0, 9.0)
 val aprobados = obtenerAlumnosAprobados(nombres, notasAlumnos)
 println("Alumnos aprobados: $aprobados")
 
+println("\n=== Etapa 4: Funciones Avanzadas ===")
+// TODO: Implementar función generarBoletin
+val materias = listOf("Matemática", "Lengua", "Historia")
+val notasMaterias = listOf(8.0, 7.5, 9.0)
+val boletin = generarBoletin("Juan Pérez", materias, notasMaterias)
+println(boletin)
 
+// TODO: Implementar funciones de análisis de rendimiento
+println("Estadísticas del curso:")
+println("Promedio: ${calcularPromedioCurso(notas)}")
+println("Nota más alta: ${obtenerNotaMasAlta(notas)}")
+println("Nota más baja: ${obtenerNotaMasBaja(notas)}")
+println("Cantidad de aprobados: ${contarAprobados(notas)}")
 }
 
 // TODO: Implementar las siguientes funciones:
@@ -74,3 +86,24 @@ fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<St
 return nombres.zip(notas).filter {it.second >= 6.0}.map {it.first}
 }
 
+// Etapa 4
+fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>): String {
+// Implementar aquí
+val boletin = materias.zip(notas).joinToString("\n") {"${it.first}: ${it.second}"}
+return "Boletín de $nombre:\n$boletin"
+}
+
+fun obtenerNotaMasAlta(notas: List<Double>): Double {
+// Implementar aquí
+return notas.maxOrNull() ?: 0.0
+}
+
+fun obtenerNotaMasBaja(notas: List<Double>): Double {
+// Implementar aquí
+return notas.minOrNull() ?: 0.0
+}
+
+fun contarAprobados(notas: List<Double>): Int {
+// Implementar aquí
+return notas.count {it >= 6.0}
+}
