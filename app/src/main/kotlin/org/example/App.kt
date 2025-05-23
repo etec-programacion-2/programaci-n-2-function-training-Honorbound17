@@ -13,6 +13,17 @@ println("El promedio es: $promedio1")
 val nota = 7.0
 val aprobado = esAprobado(nota)
 println("¿Está aprobado? $aprobado")
+
+println("\n=== Etapa 2: Funciones con Múltiples Parámetros ===")
+// TODO: Implementar función calcularPromedioTresNotas
+val promedioTresNotas = calcularPromedioTresNotas(7.0, 8.0, 9.0)
+println("El promedio de las tres notas es: $promedioTresNotas")
+
+// TODO: Implementar función obtenerEstadoAlumno
+val estado = obtenerEstadoAlumno("Juan", "Pérez", 7.5)
+println(estado)
+
+
 }
 
 // TODO: Implementar las siguientes funciones:
@@ -26,5 +37,17 @@ return (nota1 + nota2) / 2
 fun esAprobado(nota: Double): Boolean {
 // Implementar aquí
 return nota >= 6.0
+}
+
+// Etapa 2
+fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
+// Implementar aquí
+return (nota1 + nota2 + nota3) / 3
+}
+
+fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
+// Implementar aquí
+val estado = if (esAprobado(nota)) "Está aprobado" else "Está desaprobado"
+return "El alumno es $nombre $apellido y $estado con una nota de $nota"
 }
 
